@@ -13,7 +13,7 @@ export const Login = () => {
     e.preventDefault()
 
     getUserByEmail(email).then((foundUsers) => {
-      if (foundUsers.length === 1) {
+      if (foundUsers?.length === 1) {
         const user = foundUsers[0]
         localStorage.setItem(
           "capstone_user",
@@ -35,7 +35,7 @@ export const Login = () => {
       <form
         onSubmit={handleLogin}>
         <h1
-          className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+          className="mt-4 mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
           Please Sign In
         </h1>
         <label

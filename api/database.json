@@ -55,84 +55,83 @@
   ],
   "users": [
     {
-      "body": "Hello!",
-      "cohort": 67,
-      "email": "edwin.moz@outlook.com",
-      "firstName": "Edwin",
-      "lastName": "Moz",
+      "aboutMe": "Edit your profile to update your about me section!",
+      "email": "edwin.moz@parent.com",
+      "firstName": "edwin",
+      "lastName": "moz",
+      "userTypeId": 1,
       "id": 1
+    },
+    {
+      "aboutMe": "Edit your profile to update your about me section!",
+      "email": "alba.moz@parent.com",
+      "firstName": "alba",
+      "lastName": "moz",
+      "userTypeId": 1,
+      "id": 2
+    },
+    {
+      "aboutMe": "Edit your profile to update your about me section!",
+      "email": "edwins.student@student.com",
+      "firstName": "edwins",
+      "lastName": "student",
+      "studentId": 1,
+      "userTypeId": 2,
+      "id": 3
+    }
+  ],
+  "userTypes": [
+    {
+      "id": 1,
+      "description": "Parent",
+      "type": "isParent"
+    },
+    {
+      "id": 2,
+      "description": "Student",
+      "type": "isStudent"
     }
   ],
   "students": [
     {
+      "firstName": "edwins",
+      "lastName": "student",
+      "gradeId": 3,
+      "userId": 1,
+      "studentCode": 3315,
+      "id": 1
+    }
+  ],
+  "studentWorksheets": [
+    {
+      "userId": 1,
+      "studentId": 1,
+      "worksheetId": 4,
       "id": 1,
-      "firstName": "Alice",
-      "lastName": "Johnson",
-      "gradeId": 9,
-      "userId": 1
+      "questionAndAnswers": [
+        {
+          "id": 1,
+          "question": "What is the earth shape?",
+          "answer": "Flat",
+          "hint": "If you know you know",
+          "studentAnswer": "flat"
+        },
+        {
+          "id": 2,
+          "question": "What year was the moon landing?",
+          "answer": "Haven't been there yet",
+          "hint": "The more you know",
+          "studentAnswer": "2019"
+        }
+      ],
+      "isComplete": true,
+      "isApproved": true
     },
     {
-      "id": 2,
-      "firstName": "Bob",
-      "lastName": "Smith",
-      "gradeId": 10,
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "firstName": "Eva",
-      "lastName": "Davis",
-      "gradeId": 9,
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "firstName": "Michael",
-      "lastName": "Clark",
-      "gradeId": 11,
-      "userId": 1
-    },
-    {
-      "id": 5,
-      "firstName": "Sophie",
-      "lastName": "Moore",
-      "gradeId": 10,
-      "userId": 1
-    },
-    {
-      "id": 6,
-      "firstName": "Daniel",
-      "lastName": "Lee",
-      "gradeId": 9,
-      "userId": 1
-    },
-    {
-      "id": 7,
-      "firstName": "Olivia",
-      "lastName": "Baker",
-      "gradeId": 11,
-      "userId": 1
-    },
-    {
-      "id": 8,
-      "firstName": "Liam",
-      "lastName": "Parker",
-      "gradeId": 10,
-      "userId": 1
-    },
-    {
-      "id": 9,
-      "firstName": "Ava",
-      "lastName": "Ross",
-      "gradeId": 9,
-      "userId": 1
-    },
-    {
-      "id": 10,
-      "firstName": "Lucas",
-      "lastName": "Evans",
-      "gradeId": 11,
-      "userId": 1
+      "userId": 1,
+      "studentId": 1,
+      "worksheetId": 2,
+      "id": 2
     }
   ],
   "subjects": [
@@ -163,44 +162,100 @@
   ],
   "worksheets": [
     {
-      "id": 1,
-      "date": "10/21/2023",
-      "studentId": "1",
-      "subjectId": "1",
-      "title": "Adding numbers again",
-      "userId": 1
+      "questionAndAnswers": [
+        {
+          "id": 1,
+          "question": "2+2",
+          "answer": "4",
+          "hint": "No"
+        },
+        {
+          "id": 2,
+          "question": "3+3",
+          "answer": "6",
+          "hint": "No"
+        }
+      ],
+      "title": "Addition",
+      "gradeId": 2,
+      "subjectId": 1,
+      "userId": 2,
+      "id": 1
     },
     {
-      "studentId": "7",
-      "subjectId": "5",
-      "title": "Division Extensions",
-      "userId": 1,
-      "date": "10/22/2023",
+      "questionAndAnswers": [
+        {
+          "id": 1,
+          "question": "2-1",
+          "answer": "1",
+          "hint": "No"
+        },
+        {
+          "id": 2,
+          "question": "3-2",
+          "answer": "1",
+          "hint": "No"
+        }
+      ],
+      "title": "Subtraction",
+      "gradeId": 2,
+      "subjectId": 1,
+      "userId": 2,
       "id": 2
     },
     {
-      "id": 3,
-      "studentId": "5",
-      "subjectId": "6",
-      "title": "Running without style",
-      "date": "10/23/2023",
-      "userId": 1
+      "questionAndAnswers": [
+        {
+          "id": 1,
+          "question": "2x2",
+          "answer": "4",
+          "hint": "No"
+        },
+        {
+          "id": 2,
+          "question": "3x3",
+          "answer": "9",
+          "hint": "No"
+        },
+        {
+          "id": 3,
+          "question": "4x4",
+          "answer": "16",
+          "hint": "No"
+        },
+        {
+          "id": 4,
+          "question": "5x5",
+          "answer": "25",
+          "hint": "No"
+        }
+      ],
+      "title": "Multiply",
+      "gradeId": 3,
+      "subjectId": 1,
+      "userId": 2,
+      "id": 3
     },
     {
-      "studentId": "9",
-      "subjectId": "2",
-      "title": "Discovery of moles",
+      "questionAndAnswers": [
+        {
+          "id": 1,
+          "question": "What is the earth shape?",
+          "answer": "Flat",
+          "hint": "If you know you know"
+        },
+        {
+          "id": 2,
+          "question": "What year was the moon landing?",
+          "answer": "Haven't been there yet",
+          "hint": "The more you know"
+        }
+      ],
+      "title": "Science",
+      "gradeId": 1,
+      "subjectId": 2,
       "userId": 1,
-      "date": "10/24/2023",
       "id": 4
-    },
-    {
-      "studentId": "2",
-      "subjectId": "3",
-      "title": "Title",
-      "userId": 1,
-      "date": "10/24/2023",
-      "id": 5
     }
   ]
 }

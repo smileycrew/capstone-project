@@ -9,6 +9,7 @@ export const fetchUserStudents = (id) => {
     `http://localhost:8088/students?userId=${id}&_expand=grade`,
   ).then((response) => response.json())
 }
+
 //this works with ANY student needs to change this
 export const fetchStudentById = (id) => {
   return fetch(`http://localhost:8088/students/${id}`).then((response) =>
@@ -17,6 +18,12 @@ export const fetchStudentById = (id) => {
 }
 
 export const fetchUserStudentByIds = (userId, studentId) => {
+  return fetch(
+    `http://localhost:8088/students?id=${studentId}&userId=${userId}&_expand=grade`,
+  ).then((response) => response.json())
+}
+
+export const fetchUserStudentById = (userId, studentId) => {
   return fetch(
     `http://localhost:8088/students?id=${studentId}&userId=${userId}&_expand=grade`,
   ).then((response) => response.json())
