@@ -131,7 +131,25 @@
       "userId": 1,
       "studentId": 1,
       "worksheetId": 2,
-      "id": 2
+      "id": 2,
+      "questionAndAnswers": [
+        {
+          "id": 1,
+          "question": "2-1",
+          "answer": "1",
+          "hint": "No",
+          "studentAnswer": "1"
+        },
+        {
+          "id": 2,
+          "question": "3-2",
+          "answer": "1",
+          "hint": "No",
+          "studentAnswer": "1"
+        }
+      ],
+      "isComplete": true,
+      "isApproved": false
     }
   ],
   "subjects": [

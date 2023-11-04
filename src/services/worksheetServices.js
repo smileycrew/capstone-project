@@ -5,6 +5,12 @@ export const fetchUserWorksheets = (id) => {
     `http://localhost:8088/worksheets?_expand=grade&_expand=subject`,
   ).then((response) => response.json())
 }
+// fetch ALL worksheets NO expand
+export const fetchAllWorksheets = () => {
+  return fetch(
+    `http://localhost:8088/worksheets`,
+  ).then((response) => response.json())
+}
 
 export const fetchAllStudentWorksheets = () => {
   return (

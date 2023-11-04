@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchAllStudentWorksheets, putStudentWorksheetInDatabase } from "../services/worksheetServices"
 import { useNavigate } from "react-router-dom"
-import { NavBar } from "../components/NavBar"
+// import { NavBar } from "../components/NavBar"
 
 export const ReviewWorksheets = ({ user }) => {
 
@@ -46,7 +46,7 @@ export const ReviewWorksheets = ({ user }) => {
         <>
             <div className=" h-screen isolate  bg-gray-900 ">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8 "></div>
-                <NavBar />
+                {/* <NavBar /> */}
                 <div className="container mx-auto p-4">
                     <h2 className="text-2xl text-white font-bold mb-4">Review Worksheet</h2>
                     <form onSubmit={"handleUpdateButton"} className="max-w-lg mx-auto">

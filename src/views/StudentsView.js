@@ -1,5 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
-import { NavBar } from "../components/NavBar"
+// import { NavBar } from "../components/NavBar"
 import { StudentHome } from '../StudentViews/StudentHome'
 import { StudentWorksheets } from '../StudentViews/StudentWorksheets'
 import { StudentAnswers } from '../StudentViews/StudentAnswers'
@@ -9,7 +9,7 @@ export const StudentsView = ({ user }) => {
         <Routes>
             <Route path="/" elemen={
                 <>
-                    <NavBar />
+                    {/* <NavBar /> */}
                     <Outlet />
                 </>
             }>

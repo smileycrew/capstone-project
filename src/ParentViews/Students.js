@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { fetchUserStudentById, fetchUserStudents } from '../services/studentServices'
 import { ViewStudent } from './ViewStudent'
 import { EditStudent } from './forms/EditStudent'
-import { NavBar } from '../components/NavBar'
+// import { NavBar } from '../components/NavBar'
 
 export const Students = ({ user }) => {
 
@@ -37,7 +37,7 @@ export const Students = ({ user }) => {
     return (
         <>
             <div className="relative h-screen isolate overflow-hidden bg-gray-900 ">
-                <NavBar />
+                {/* <NavBar /> */}
                 <CreateStudent user={user} createStudentToggle={createStudentToggle} setCreateStudentToggle={setCreateStudentToggle} handleFetchCalls={handleFetchCalls} />
                 <ViewStudent handleViewStudentToggle={handleViewStudentToggle} chosenStudent={chosenStudent} setChosenStudent={setChosenStudent} user={user} viewStudentToggle={viewStudentToggle} setViewStudentToggle={setViewStudentToggle} editStudentToggle={editStudentToggle} setEditStudentToggle={setEditStudentToggle} handleFetchCalls={handleFetchCalls} />
                 <EditStudent chosenStudent={chosenStudent} editStudentToggle={editStudentToggle} setEditStudentToggle={setEditStudentToggle} handleFetchCalls={handleFetchCalls} />

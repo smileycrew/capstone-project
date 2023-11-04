@@ -3,7 +3,7 @@ import { fetchUserStudents } from "../services/studentServices"
 import { fetchAllStudentWorksheets, fetchUserWorksheets } from "../services/worksheetServices"
 import { Link } from "react-router-dom"
 import { putUserToDatabase } from '../services/userServices'
-import { NavBar } from '../components/NavBar'
+// import { NavBar } from '../components/NavBar'
 
 export const Home = ({ user, setUser }) => {
 
@@ -47,7 +47,7 @@ export const Home = ({ user, setUser }) => {
     return (
         <div
             className="relative h-screen isolate overflow-hidden bg-gray-900 ">
-            <NavBar />
+            {/* <NavBar /> */}
             <div
                 className="mx-auto max-w-7xl px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
                 <div

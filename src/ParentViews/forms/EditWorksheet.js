@@ -5,7 +5,7 @@ import { fetchSubjects } from "../../services/subjectServices"
 import { EditWorksheetHeaderForm } from "./EditWorksheetHeaderForm"
 import { useParams } from "react-router-dom"
 import { fetchExpandedWorksheetById } from "../../services/worksheetServices"
-import { NavBar } from '../../components/NavBar'
+// import { NavBar } from '../../components/NavBar'
 
 export const EditWorksheet = ({ user }) => {
 
@@ -34,7 +34,7 @@ export const EditWorksheet = ({ user }) => {
         <>
             <div className="relative h-screen isolate overflow-hidden bg-gray-900 ">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8 "></div>
-                <NavBar />
+                {/* <NavBar /> */}
                 <div class="isolate px-6 lg:px-8">
                     <form className="mx-auto mt-16 max-w-xl sm:mt-20">
                         <EditWorksheetHeaderForm grades={grades} subjects={subjects} user={user} worksheet={worksheet} setWorksheet={setWorksheet} />

@@ -3,7 +3,7 @@ import { WorksheetHeaderForm } from "./WorksheetHeaderForm"
 import { WorksheetInputForm } from "./WorksheetInputForm"
 import { fetchGrades } from "../../services/gradeServices"
 import { fetchSubjects } from "../../services/subjectServices"
-import { NavBar } from "../../components/NavBar"
+// import { NavBar } from "../../components/NavBar"
 
 export const CreateWorksheet = ({ user }) => {
 
@@ -29,7 +29,7 @@ export const CreateWorksheet = ({ user }) => {
 
             <div className="relative h-screen isolate overflow-hidden bg-gray-900 ">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8 "></div>
-                <NavBar />
+                {/* <NavBar /> */}
                 <div className="isolate px-6 lg:px-8">
                     <form className="mx-auto mt-16 max-w-xl sm:mt-20 ">
                         <WorksheetHeaderForm grades={grades} subjects={subjects} user={user} worksheetForm={worksheetForm} setWorksheetForm={setWorksheetForm} />
