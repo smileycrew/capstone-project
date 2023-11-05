@@ -2,153 +2,159 @@
   "grades": [
     {
       "id": 1,
-      "grade": "1st"
+      "level": "1st"
     },
     {
       "id": 2,
-      "grade": "2nd"
+      "level": "2nd"
     },
     {
       "id": 3,
-      "grade": "3rd"
+      "level": "3rd"
     },
     {
       "id": 4,
-      "grade": "4th"
+      "level": "4th"
     },
     {
       "id": 5,
-      "grade": "5th"
+      "level": "5th"
     },
     {
       "id": 6,
-      "grade": "6th"
+      "level": "6th"
     },
     {
       "id": 7,
-      "grade": "7th"
+      "level": "7th"
     },
     {
       "id": 8,
-      "grade": "8th"
+      "level": "8th"
     },
     {
       "id": 9,
-      "grade": "9th"
+      "level": "9th"
     },
     {
       "id": 10,
-      "grade": "10th"
+      "level": "10th"
     },
     {
       "id": 11,
-      "grade": "11th"
+      "level": "11th"
     },
     {
       "id": 12,
-      "grade": "12th"
+      "level": "12th"
     },
     {
       "id": 13,
-      "grade": "Freshman"
+      "level": "Freshman"
+    },
+    {
+      "id": 14,
+      "level": "Sophmore"
+    },
+    {
+      "id": 15,
+      "level": "Junior"
+    },
+    {
+      "id": 16,
+      "level": "Senior"
+    }
+  ],
+  "likes": [
+    {
+      "id": 1,
+      "userId": 1,
+      "worksheetId": 1
+    }
+  ],
+  "questionsAndAnswers": [
+    {
+      "answer": "question",
+      "hint": "none",
+      "question": "first",
+      "userId": 1,
+      "worksheetId": 1,
+      "id": 1
+    },
+    {
+      "answer": "two",
+      "hint": "three",
+      "question": "on",
+      "userId": 1,
+      "worksheetId": 2,
+      "id": 2
+    },
+    {
+      "answer": "five",
+      "hint": "six",
+      "question": "four",
+      "userId": 1,
+      "worksheetId": 2,
+      "id": 3
     }
   ],
   "users": [
     {
-      "aboutMe": "Edit your profile to update your about me section!",
-      "email": "edwin.moz@parent.com",
-      "firstName": "edwin",
-      "lastName": "moz",
-      "userTypeId": 1,
+      "aboutMe": "Edit your about me section in your profile",
+      "isStudent": false,
+      "firstName": "first",
+      "lastName": "user",
+      "email": "first.user@email.com",
       "id": 1
-    },
-    {
-      "aboutMe": "Edit your profile to update your about me section!",
-      "email": "alba.moz@parent.com",
-      "firstName": "alba",
-      "lastName": "moz",
-      "userTypeId": 1,
-      "id": 2
-    },
-    {
-      "aboutMe": "Edit your profile to update your about me section!",
-      "email": "edwins.student@student.com",
-      "firstName": "edwins",
-      "lastName": "student",
-      "studentId": 1,
-      "userTypeId": 2,
-      "id": 3
-    }
-  ],
-  "userTypes": [
-    {
-      "id": 1,
-      "description": "Parent",
-      "type": "isParent"
-    },
-    {
-      "id": 2,
-      "description": "Student",
-      "type": "isStudent"
     }
   ],
   "students": [
     {
-      "firstName": "edwins",
+      "email": "",
+      "gpa": 100,
+      "studentCode": 6185,
+      "userId": 1,
+      "firstName": "first",
       "lastName": "student",
       "gradeId": 3,
-      "userId": 1,
-      "studentCode": 3315,
       "id": 1
+    },
+    {
+      "email": "",
+      "gpa": 100,
+      "studentCode": 4500,
+      "userId": 1,
+      "firstName": "second",
+      "lastName": "student",
+      "gradeId": 6,
+      "id": 2
+    },
+    {
+      "email": "",
+      "gpa": 100,
+      "studentCode": 5374,
+      "userId": 1,
+      "gradeId": 6,
+      "firstName": "third",
+      "lastName": "student",
+      "id": 3
+    }
+  ],
+  "studentsAnswers": [
+    {
+      "id": 1,
+      "answer": "round",
+      "studentId": 1,
+      "worksheetId": 1
     }
   ],
   "studentWorksheets": [
     {
       "userId": 1,
       "studentId": 1,
-      "worksheetId": 4,
+      "worksheetId": 1,
       "id": 1,
-      "questionAndAnswers": [
-        {
-          "id": 1,
-          "question": "What is the earth shape?",
-          "answer": "Flat",
-          "hint": "If you know you know",
-          "studentAnswer": "flat"
-        },
-        {
-          "id": 2,
-          "question": "What year was the moon landing?",
-          "answer": "Haven't been there yet",
-          "hint": "The more you know",
-          "studentAnswer": "2019"
-        }
-      ],
-      "isComplete": true,
-      "isApproved": true
-    },
-    {
-      "userId": 1,
-      "studentId": 1,
-      "worksheetId": 2,
-      "id": 2,
-      "questionAndAnswers": [
-        {
-          "id": 1,
-          "question": "2-1",
-          "answer": "1",
-          "hint": "No",
-          "studentAnswer": "1"
-        },
-        {
-          "id": 2,
-          "question": "3-2",
-          "answer": "1",
-          "hint": "No",
-          "studentAnswer": "1"
-        }
-      ],
-      "isComplete": true,
+      "isComplete": false,
       "isApproved": false
     }
   ],
@@ -180,100 +186,20 @@
   ],
   "worksheets": [
     {
-      "questionAndAnswers": [
-        {
-          "id": 1,
-          "question": "2+2",
-          "answer": "4",
-          "hint": "No"
-        },
-        {
-          "id": 2,
-          "question": "3+3",
-          "answer": "6",
-          "hint": "No"
-        }
-      ],
-      "title": "Addition",
-      "gradeId": 2,
-      "subjectId": 1,
-      "userId": 2,
+      "gradeId": 4,
+      "imageURL": "https://placehold.co/400",
+      "subjectId": 4,
+      "title": "first worksheet",
+      "userId": 1,
       "id": 1
     },
     {
-      "questionAndAnswers": [
-        {
-          "id": 1,
-          "question": "2-1",
-          "answer": "1",
-          "hint": "No"
-        },
-        {
-          "id": 2,
-          "question": "3-2",
-          "answer": "1",
-          "hint": "No"
-        }
-      ],
-      "title": "Subtraction",
-      "gradeId": 2,
-      "subjectId": 1,
-      "userId": 2,
-      "id": 2
-    },
-    {
-      "questionAndAnswers": [
-        {
-          "id": 1,
-          "question": "2x2",
-          "answer": "4",
-          "hint": "No"
-        },
-        {
-          "id": 2,
-          "question": "3x3",
-          "answer": "9",
-          "hint": "No"
-        },
-        {
-          "id": 3,
-          "question": "4x4",
-          "answer": "16",
-          "hint": "No"
-        },
-        {
-          "id": 4,
-          "question": "5x5",
-          "answer": "25",
-          "hint": "No"
-        }
-      ],
-      "title": "Multiply",
-      "gradeId": 3,
-      "subjectId": 1,
-      "userId": 2,
-      "id": 3
-    },
-    {
-      "questionAndAnswers": [
-        {
-          "id": 1,
-          "question": "What is the earth shape?",
-          "answer": "Flat",
-          "hint": "If you know you know"
-        },
-        {
-          "id": 2,
-          "question": "What year was the moon landing?",
-          "answer": "Haven't been there yet",
-          "hint": "The more you know"
-        }
-      ],
-      "title": "Science",
-      "gradeId": 1,
-      "subjectId": 2,
+      "gradeId": 7,
+      "imageURL": "https://placehold.co/400",
+      "subjectId": 6,
+      "title": "second worksheet",
       "userId": 1,
-      "id": 4
+      "id": 2
     }
   ]
 }

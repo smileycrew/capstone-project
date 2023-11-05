@@ -5,6 +5,8 @@ import { Worksheets } from '../ParentViews/Worksheets'
 import { CreateWorksheet } from '../ParentViews/forms/CreateWorksheet'
 import { EditWorksheet } from '../ParentViews/forms/EditWorksheet'
 import { ReviewWorksheets } from '../ParentViews/ReviewWorksheets'
+import { NavBar } from "../navbar/NavBar"
+import { CreateStudent } from "../ParentViews/forms/CreateStudent"
 
 
 export const ParentsView = ({ user, setUser }) => {
@@ -12,6 +14,7 @@ export const ParentsView = ({ user, setUser }) => {
         <Routes>
             <Route path="/" element={
                 <>
+                    <NavBar />
                     <Outlet />
                 </>
             }>
@@ -23,6 +26,7 @@ export const ParentsView = ({ user, setUser }) => {
                     <Route path="edit/:worksheetId" element={<EditWorksheet user={user} />}></Route>
                     <Route path="review" element={<ReviewWorksheets user={user} />}></Route>
                 </Route>
+                {/* <Route path="create" element={<CreateStudent user={user} />}></Route> */}
             </Route>
         </Routes>
     )

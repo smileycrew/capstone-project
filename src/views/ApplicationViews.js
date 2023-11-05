@@ -20,6 +20,6 @@ export const ApplicationViews = () => {
   }, [])
 
   return (
-    user?.userTypeId !== 1 && user?.userTypeId !== 3 ? <StudentsView user={user} /> : <ParentsView user={user} setUser={setUser} />
+    user.isStudent === false ? <ParentsView user={user} setUser={setUser} /> : user.isStudent === true && <StudentsView user={user} />
   )
 }

@@ -3,10 +3,10 @@ export const fetchStudents = () => {
     response.json(),
   )
 }
-
+// this is being used to fetch USER ONLY students
 export const fetchUserStudents = (id) => {
   return fetch(
-    `http://localhost:8088/students?userId=${id}&_expand=grade`,
+    `http://localhost:8088/students?userId=${id}`,
   ).then((response) => response.json())
 }
 
@@ -28,14 +28,14 @@ export const fetchUserStudentById = (userId, studentId) => {
     `http://localhost:8088/students?id=${studentId}&userId=${userId}&_expand=grade`,
   ).then((response) => response.json())
 }
-
-export const postStudentToDatabase = (studentObject) => {
+// this will create the student in the database
+export const postStudentToDatabase = (studentToCreate) => {
   return fetch("http://localhost:8088/students", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(studentObject),
+    body: JSON.stringify(studentToCreate),
   })
 }
 

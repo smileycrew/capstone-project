@@ -17,15 +17,17 @@ export const fetchAllStudentWorksheets = () => {
     fetch('http://localhost:8088/studentWorksheets?_expand=student&_expand=worksheet').then((response) => response.json())
   )
 }
-
-export const postWorksheetToDatabase = (object) => {
-  return fetch("http://localhost:8088/worksheets", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(object),
-  })
+// post created worksheet
+export const postWorksheetToDatabase = (worksheetToSave) => {
+  return (
+    fetch("http://localhost:8088/worksheets", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(worksheetToSave),
+    }).then((response) => response.json())
+  )
 }
 
 export const fetchStudentWorksheetById = (id) => {
@@ -39,9 +41,9 @@ export const fetchExpandedStudentWorksheetByStudentId = (id) => {
     `http://localhost:8088/studentWorksheets?studentId=${id}&_expand=worksheet`,
   ).then((response) => response.json())
 }
-
-export const deleteWorksheetFromDatabase = (id) => {
-  return fetch(`http://localhost:8088/worksheets/${id}`, {
+// this is being used to delete my worksheet
+export const deleteWorksheetFromDatabase = (worksheetId) => {
+  return fetch(`http://localhost:8088/worksheets/${worksheetId}`, {
     method: "DELETE",
   })
 }

@@ -19,7 +19,7 @@ export const fetchUserById = (id) => {
     response.json(),
   )
 }
-
+// use this to update profile and change the name to IN database
 export const putUserToDatabase = (object) => {
   return fetch(`http://localhost:8088/users/${object.id}`, {
     method: "PUT",
@@ -28,10 +28,4 @@ export const putUserToDatabase = (object) => {
     },
     body: JSON.stringify(object),
   }).then((response) => response.json())
-}
-
-export const fetchUserTypes = () => {
-  return (
-    fetch('http://localhost:8088/userTypes').then((response) => response.json())
-  )
 }

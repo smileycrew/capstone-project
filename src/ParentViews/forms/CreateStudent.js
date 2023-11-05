@@ -1,170 +1,86 @@
 import { useEffect, useState } from "react"
 import { fetchGrades } from "../../services/gradeServices"
 import { postStudentToDatabase } from "../../services/studentServices"
+import { useNavigate } from "react-router-dom"
 
-export const CreateStudent = ({ user, createStudentToggle, setCreateStudentToggle, handleFetchCalls }) => {
-
-    const [grades, setGrades] = useState([])
-    const [studentForm, setStudentForm] = useState({})
-
-    const handleCreateStudent = (event) => {
-        event.preventDefault()
-        const copy = { ...studentForm, userId: user.id, studentCode: handleRandomNumber() }
-        copy.gradeId = parseInt(copy.gradeId)
-        studentForm.firstName && studentForm.lastName && studentForm.gradeId ?
-            postStudentToDatabase(copy).then(() => {
-                setCreateStudentToggle(false)
-                handleFetchCalls()
-            }) :
-            window.alert("please complete all fields")
-    }
-
-    const handleCreateFetchCalls = () => {
-        fetchGrades().then((data) => {
-            setGrades(data)
-        })
-    }
+export const CreateStudent = ({ user }) => {
 
     // Generate a random number between 100,000 and 999,999
-    const handleRandomNumber = () => {
+    const generateRandomNumber = () => {
         const min = 1000;
         const max = 9999;
         const randomOrderNumber = Math.floor(Math.random() * (max - min + 1)) + min;
         return randomOrderNumber
     }
 
-    const handleStudentInput = (event) => {
-        const copy = { ...studentForm }
-        const name = event?.target?.name
-        const value = event?.target?.value
-        copy[name] = value
-        setStudentForm(copy)
+    const [grades, setGrades] = useState([])
+    const [userStudent, setUserStudent] = useState({
+        email: "",
+        gpa: 100,
+        studentCode: generateRandomNumber(),
+        userId: user.id
+    })
+
+    const navigate = useNavigate()
+
+    const handleCreateStudent = () => {
+        const studentToCreate = { ...userStudent }
+        postStudentToDatabase(studentToCreate).then(() => { navigate('/students') })
     }
 
-    const handleToggle = () => {
-        setCreateStudentToggle(!createStudentToggle)
-        setStudentForm({})
+    const handleFetchGrades = () => {
+        fetchGrades().then((data) => { setGrades(data) })
+    }
+
+    const handleGradeSelectInput = (event) => {
+        const updatedUserStudent = { ...userStudent, [event.target.name]: parseInt(event.target.value) }
+        setUserStudent(updatedUserStudent)
+
+    }
+
+    const handleUserInputs = (event) => {
+        const updatedUserStudent = { ...userStudent, [event.target.name]: event.target.value }
+        setUserStudent(updatedUserStudent)
     }
 
     useEffect(() => {
-        handleCreateFetchCalls()
+        handleFetchGrades()
     }, [])
 
     return (
         <>
-            {createStudentToggle ?
-                <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-                    <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-                    <div className="fixed inset-0 overflow-hidden">
-                        <div className="absolute inset-0 overflow-hidden">
-                            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-                                <div className="pointer-events-auto w-screen max-w-md">
-                                    <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                                        <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                                            <div className="flex items-start justify-between">
-                                                <b className="text-lg font-medium text-gray-900" id="slide-over-title"></b>
-                                                <div className="ml-3 flex h-7 items-center">
-                                                    <button onClick={handleToggle} type="button" className="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
-                                                        <span className="absolute -inset-0.5"></span>
-                                                        <span className="sr-only">Close panel</span>
-                                                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div
-                                                className="flex mx-auto max-w-7xl px- sm:px-6 lg:px-8 relative h-16 items-center justify-center gap-10 pt-10">
-                                                <img
-                                                    className="text-center h-32 w-32 rounded-full"
-                                                    src={`https://api.dicebear.com/7.x/big-smile/svg?seed=${studentForm?.firstName}`}
-                                                    alt="" />
-                                                <section
-                                                    className="sm:col-span-3">
-
-                                                    <label
-                                                        className="block text-sm font-medium leading-6 text-gray-900">
-                                                        Grades
-                                                        <select
-                                                            className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                                                            name="gradeId"
-                                                            onChange={handleStudentInput}
-                                                            required>
-                                                            <option>
-                                                                select a grade
-                                                            </option>
-                                                            {grades.map((grade) => {
-                                                                return (
-                                                                    <option
-                                                                        key={grade?.id}
-                                                                        value={grade?.id}>
-                                                                        {grade?.grade}
-                                                                    </option>
-                                                                )
-                                                            })}
-                                                        </select>
-                                                    </label>
-                                                </section>
-                                            </div>
-                                            <div className="mt-8">
-                                                <div className="flow-root">
-                                                    <form
-                                                        className="space-y-6">
-                                                        <fieldset>
-                                                            <p
-                                                                className="block text-sm font-medium leading-6 text-gray-900">
-                                                                First Name
-                                                            </p>
-                                                            <input
-                                                                className="mt-2 text-center block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                                autoComplete="first name"
-                                                                id="firstName"
-                                                                onChange={handleStudentInput}
-                                                                name="firstName"
-                                                                placeholder="Enter your first name"
-                                                                required
-                                                                type="text" />
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <label
-                                                                className="block text-sm font-medium leading-6 text-gray-900">
-                                                                Last Name
-                                                            </label>
-                                                            <input
-                                                                className="mt-2 text-center block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                                id="lastName"
-                                                                onChange={handleStudentInput}
-                                                                name="lastName"
-                                                                placeholder="Enter your last name"
-                                                                required
-                                                                type="text" />
-                                                        </fieldset>
-
-                                                        <div className="sm:col-span-4">
-                                                            <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">Username</label>
-                                                            <div className="flex mt-2 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <button
-                                                                type="submit"
-                                                                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                                                onClick={handleCreateStudent}>
-                                                                Create Student
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <main className="border flex flex-col h-screen items-center pt-28">
+                <div className="bg-white border p-10 rounded-md shadow-lg">
+                    <section className="">
+                        <div className="flex gap-10 pb-5">
+                            <div className="">
+                                <img className="bg-gray-500 h-40 rounded-full shadow-lg w-40" src={`https://api.dicebear.com/7.x/big-smile/svg?seed=${userStudent.firstName}%20${userStudent.lastName}`} alt="avatar" />
+                            </div>
+                            <div className="flex flex-col gap-2 justify-center">
+                                <label>Grade:</label>
+                                <select className="border h-10 hover:border-blue-500/100 w-52 rounded-md" name="gradeId" onChange={handleGradeSelectInput}>
+                                    <option>choose a grade</option>
+                                    {grades.map((grade, index) => <option key={index} value={grade.id}>{grade.level}</option>)}
+                                </select>
                             </div>
                         </div>
+                    </section>
+                    <form className="flex flex-col">
+                        <fieldset className="flex flex-col">
+                            <label>First name</label>
+                            <input className="border h-10 hover:border-blue-500/100 rounded-md text-center" name="firstName" onChange={handleUserInputs} placeholder="Enter first name..." />
+                        </fieldset>
+                        <fieldset className="flex flex-col pb-5 pt-5">
+                            <label>Last name</label>
+                            <input className="border h-10 hover:border-blue-500/100 rounded-md text-center" name="lastName" onChange={handleUserInputs} placeholder="Enter last name..." />
+                        </fieldset>
+                    </form>
+                    <div className="flex gap-3 justify-between">
+                        <button className="bg-gray-200 border h-10 hover:bg-gray-100 w-2/4 rounded-md" onClick={() => { navigate('students') }}>Cancel</button>
+                        <button className="bg-blue-500 border h-10 hover:bg-blue-400 w-2/4 rounded-md" onClick={handleCreateStudent}>Create</button>
                     </div>
-                </div> :
-                null
-            }
+                </div>
+            </main>
         </>
     )
 }
