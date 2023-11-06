@@ -48,9 +48,9 @@ export const putStudentInDatabase = (object) => {
     body: JSON.stringify(object),
   })
 }
-
-export const deleteStudentFromDatabase = (id) => {
-  return fetch(`http://localhost:8088/students/${id}`, {
+// this is used to delete student from database
+export const deleteStudentFromDatabase = (studentId) => {
+  return fetch(`http://localhost:8088/students/${studentId}`, {
     method: "DELETE",
   })
 }

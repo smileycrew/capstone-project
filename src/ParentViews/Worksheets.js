@@ -3,13 +3,14 @@ import { deleteWorksheetFromDatabase, fetchAllWorksheets } from "../services/wor
 import { fetchGrades } from '../services/gradeServices'
 import { fetchSubjects } from '../services/subjectServices'
 import { useNavigate } from "react-router-dom"
-import { NavBar } from "../navbar/NavBar"
+import { deleteLikeFromDatabase, fetchUserLikes, postLikeToDatabase } from "../services/likeServices"
 // SORT THIS ALSO BY MY WORKSHEETS!!!!!
 export const Worksheets = ({ user }) => {
 
     const [grades, setGrades] = useState([])
     // const [studentWorksheets, setStudentWorksheets] = useState([])
     const [subjects, setSubjects] = useState([])
+    const [userLikes, setUserLikes] = useState([])
     const [worksheets, setWorksheets] = useState([])
     const [worksheetsToDisplay, setWorksheetsToDisplay] = useState([])
 
@@ -35,6 +36,10 @@ export const Worksheets = ({ user }) => {
         fetchGrades().then((data) => { setGrades(data) })
     }
 
+    const handleFetchUserLikes = () => {
+        fetchUserLikes(user.id).then((data) => { setUserLikes(data) })
+    }
+
     const handleFetchSubjects = () => {
         fetchSubjects().then((data) => {
             setSubjects(data)
@@ -48,9 +53,29 @@ export const Worksheets = ({ user }) => {
         })
     }
 
+    const handleLikeButton = (worksheetId) => {
+        fetchUserLikes(user.id).then((data) => {
+            const foundLike = data.find((datum) => datum.worksheetId === worksheetId)
+            if (foundLike === undefined) {
+                const likeToPost = {
+                    userId: user.id,
+                    worksheetId: worksheetId
+                }
+                postLikeToDatabase(likeToPost).then(() => { handleFetchWorksheets() })
+            } else {
+                deleteLikeFromDatabase(foundLike.id).then((data) => {
+                    console.log("🚀 ~ file: Worksheets.js:67 ~ fetchUserLikes ~ data:", data)
+
+                    console.log('made it here')
+                })
+            }
+        })
+    }
+
     useEffect(() => {
         handleFetchGrades()
         handleFetchSubjects()
+        handleFetchUserLikes()
         handleFetchWorksheets()
     }, [user.id])
 
@@ -90,7 +115,9 @@ export const Worksheets = ({ user }) => {
                             return (
                                 <section className="bg-white border-2 m-3 rounded shadow-xl" key={index}>
                                     {/* add some sort of border around the images */}
-                                    <img className="h-50 w-50" src={worksheet.imageURL} alt="" />
+                                    <div className="">
+                                        <img className="h-52 w-52" src={worksheet.imageURL} alt="" />
+                                    </div>
                                     <h2 className="p-1">{worksheet.title}</h2>
                                     {worksheet.userId === user.id ?
                                         <div className="flex gap-5 justify-end p-1">
@@ -104,7 +131,7 @@ export const Worksheets = ({ user }) => {
                                         </div> :
                                         <div className="flex justify-end p-1">
                                             <b></b>
-                                            <button className="border hover:bg-yellow-400 rounded-full w-10">
+                                            <button className={`${userLikes.find((like) => like.worksheetId === worksheet.id) === undefined ? 'bg-white' : 'bg-yellow-500'} border hover:bg-yellow-400 rounded-full w-10`} onClick={() => { handleLikeButton(worksheet.id) }}>
                                                 👍
                                             </button>
                                         </div>

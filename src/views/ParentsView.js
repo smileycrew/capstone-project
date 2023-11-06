@@ -26,7 +26,7 @@ export const ParentsView = ({ user, setUser }) => {
                     <Route path="edit/:worksheetId" element={<EditWorksheet user={user} />}></Route>
                     <Route path="review" element={<ReviewWorksheets user={user} />}></Route>
                 </Route>
-                {/* <Route path="create" element={<CreateStudent user={user} />}></Route> */}
+                <Route path="create" element={<CreateStudent user={user} />}></Route>
             </Route>
         </Routes>
     )

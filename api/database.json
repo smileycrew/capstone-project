@@ -67,35 +67,19 @@
   ],
   "likes": [
     {
-      "id": 1,
       "userId": 1,
-      "worksheetId": 1
+      "worksheetId": 1,
+      "id": 1
     }
   ],
   "questionsAndAnswers": [
     {
-      "answer": "question",
-      "hint": "none",
-      "question": "first",
+      "answer": "two",
+      "hint": "three",
+      "question": "one",
       "userId": 1,
       "worksheetId": 1,
       "id": 1
-    },
-    {
-      "answer": "two",
-      "hint": "three",
-      "question": "on",
-      "userId": 1,
-      "worksheetId": 2,
-      "id": 2
-    },
-    {
-      "answer": "five",
-      "hint": "six",
-      "question": "four",
-      "userId": 1,
-      "worksheetId": 2,
-      "id": 3
     }
   ],
   "users": [
@@ -140,24 +124,8 @@
       "id": 3
     }
   ],
-  "studentsAnswers": [
-    {
-      "id": 1,
-      "answer": "round",
-      "studentId": 1,
-      "worksheetId": 1
-    }
-  ],
-  "studentWorksheets": [
-    {
-      "userId": 1,
-      "studentId": 1,
-      "worksheetId": 1,
-      "id": 1,
-      "isComplete": false,
-      "isApproved": false
-    }
-  ],
+  "studentsAnswers": [],
+  "studentWorksheets": [],
   "subjects": [
     {
       "id": 1,
@@ -187,19 +155,11 @@
   "worksheets": [
     {
       "gradeId": 4,
-      "imageURL": "https://placehold.co/400",
-      "subjectId": 4,
+      "imageURL": "",
+      "subjectId": 3,
       "title": "first worksheet",
       "userId": 1,
       "id": 1
-    },
-    {
-      "gradeId": 7,
-      "imageURL": "https://placehold.co/400",
-      "subjectId": 6,
-      "title": "second worksheet",
-      "userId": 1,
-      "id": 2
     }
   ]
 }
