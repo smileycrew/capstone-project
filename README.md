@@ -49,7 +49,6 @@ The goal of this application is for parents to connect with other parents who ar
 These websites were my main source of inspiration I used to design my application...
 
 - Education - [@education](https://www.education.com/worksheets/)
-[Back To The Top](#read-me-template)
 
 - Facebook - [@facebook](https://www.facebook.com/)
   
