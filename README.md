@@ -37,7 +37,9 @@ The goal of this application is for parents to connect with other parents who ar
 
 #### Installation
 
-
+1. Clone the repository into your desired folder.
+2. Using your terminal cd into the api folder then run this command to start the json server: json-server database.json -p 8088 -w
+3. Once the json server is running on your local host cd into the root folder and run this command to launch the project into your browser: npm start
 
 #### API Reference
 
@@ -49,7 +51,16 @@ The goal of this application is for parents to connect with other parents who ar
 ---
 
 ## References
+
+These websites were my main source of inspiration I used to design my application...
+
+- Education - [@education](https://www.education.com/worksheets/)
 [Back To The Top](#read-me-template)
+
+- Facebook - [@facebook](https://www.facebook.com/)
+
+[Back To The Top](#read-me-template)
+
 
 ---
 
@@ -57,7 +68,7 @@ The goal of this application is for parents to connect with other parents who ar
 
 MIT License
 
-Copyright (c) [2017] [James Q Quick]
+Copyright (c) [2023] [Edwin Moz]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -83,7 +94,6 @@ SOFTWARE.
 
 ## Author Info
 
-- Twitter - [@jamesqquick](https://twitter.com/jamesqquick)
-- Website - [James Q Quick](https://jamesqquick.com)
+- Linkedin - [linkedin](https://www.linkedin.com/in/edwin-moz/)
 
 [Back To The Top](#read-me-template)
