@@ -57,6 +57,8 @@ These websites were my main source of inspiration I used to design my applicatio
 [Back To The Top](#read-me-template)
 
 - Facebook - [@facebook](https://www.facebook.com/)
+  
+- Linkedin - [@linkedin](https://www.linkedin.com/feed/)
 
 [Back To The Top](#read-me-template)
 
