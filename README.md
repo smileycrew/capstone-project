@@ -1,8 +1,8 @@
-# Read Me Template
+# Education-Connect
 
 ![Project Image](https://github.com/smileycrew/capstone-project/assets/141660805/610388cb-75da-44be-acbd-38bf7b0ef2a7)
 
-> This is a ReadMe template to help save you time and effort.
+> Information about home schooling is so hard to find... now there's a way to get in touch with others without having to contact the school directly just to get little to no information.
 
 ---
 
