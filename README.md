@@ -40,11 +40,6 @@ The goal of this application is for parents to connect with other parents who ar
 2. Using your terminal cd into the api folder then run this command to start the json server: json-server database.json -p 8088 -w
 3. Once the json server is running on your local host cd into the root folder and run this command to launch the project into your browser: npm start
 
-#### API Reference
-
-```html
-    <p>dummy code</p>
-```
 [Back To The Top](#read-me-template)
 
 ---
