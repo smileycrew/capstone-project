@@ -1,6 +1,6 @@
 # Read Me Template
 
-![Project Image](project-image-url)
+![Project Image](https://github.com/smileycrew/capstone-project/assets/141660805/610388cb-75da-44be-acbd-38bf7b0ef2a7)
 
 > This is a ReadMe template to help save you time and effort.
 
