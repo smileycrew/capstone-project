@@ -19,7 +19,7 @@ You're sections headers will be used to reference location of destination.
 
 ## Description
 
-The goal of this application is for parents to connect with other parents who are homeschooling their children and to easily create, read, update, delete their worksheets all in one place.
+The goal of this application is for parents to connect with other parents who are homeschooling their children and to easily create, read, update, delete their data / worksheets all in one place.
 
 #### Technologies
 
@@ -27,6 +27,7 @@ The goal of this application is for parents to connect with other parents who ar
 - Tailwind CSS
 - HTML
 - React
+- JSON server
 
 [Back To The Top](#read-me-template)
 
